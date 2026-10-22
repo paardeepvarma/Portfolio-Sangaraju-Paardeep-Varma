@@ -1,0 +1,782 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Sangaraju Paardeep Varma | AI & ML Portfolio</title>
+  <meta name="description"
+    content="Portfolio of Sangaraju Paardeep Varma, B.E. Computer Science and Engineering student specializing in Artificial Intelligence and Machine Learning.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+    rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #0b1120;
+      --card: #111827;
+      --card-light: #172033;
+      --border: #263247;
+      --text: #f1f5f9;
+      --muted: #94a3b8;
+      --primary: #60a5fa;
+      --secondary: #38bdf8;
+      --accent: #a78bfa;
+      --success: #4ade80;
+      --max-width: 1050px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 85px;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: "Inter", sans-serif;
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(92%, var(--max-width));
+      margin: auto;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(11, 17, 32, 0.94);
+      backdrop-filter: blur(15px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-container {
+      min-height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .logo {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: white;
+      white-space: nowrap;
+    }
+
+    .logo span,
+    .hero h1 span {
+      color: var(--primary);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-size: 0.84rem;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    .hero {
+      min-height: 620px;
+      display: flex;
+      align-items: center;
+      padding: 90px 0 70px;
+      background: radial-gradient(
+        circle at 80% 20%,
+        rgba(96, 165, 250, 0.14),
+        transparent 35%
+      );
+    }
+
+    .hero-content {
+      max-width: 850px;
+    }
+
+    .hello {
+      color: var(--primary);
+      font-size: 0.95rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      margin-bottom: 1rem;
+    }
+
+    .hero h1 {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: clamp(2.5rem, 7vw, 5rem);
+      line-height: 1.12;
+      overflow-wrap: anywhere;
+      margin-bottom: 1.3rem;
+    }
+
+    .hero-role {
+      font-size: 1.2rem;
+      color: var(--muted);
+      margin-bottom: 1.3rem;
+    }
+
+    .hero-description {
+      max-width: 680px;
+      color: var(--muted);
+      margin-bottom: 2rem;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.75rem 1.3rem;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: 0.3s;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: #07101f;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      background: var(--secondary);
+    }
+
+    .btn-outline {
+      border: 1px solid var(--border);
+      color: var(--text);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+
+    section {
+      padding: 80px 0;
+      scroll-margin-top: 70px;
+    }
+
+    .section-heading {
+      margin-bottom: 2.5rem;
+    }
+
+    .section-label {
+      color: var(--primary);
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+
+    .section-heading h2 {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: clamp(1.7rem, 4vw, 2rem);
+    }
+
+    .section-heading p {
+      color: var(--muted);
+      margin-top: 0.5rem;
+      max-width: 650px;
+    }
+
+    .about-text {
+      max-width: 800px;
+      color: var(--muted);
+    }
+
+    .highlight {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .skills-grid,
+    .projects,
+    .learning-grid,
+    .achievement-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .skill-card,
+    .project,
+    .learning-card,
+    .achievement {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      transition: transform 0.3s, border-color 0.3s;
+    }
+
+    .skill-card {
+      padding: 1.4rem;
+    }
+
+    .skill-card:hover,
+    .project:hover,
+    .learning-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--primary);
+    }
+
+    .skill-card h3,
+    .learning-card h3 {
+      font-size: 1rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .skill-card p,
+    .learning-card p {
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    .projects {
+      gap: 1.3rem;
+      align-items: stretch;
+    }
+
+    .project {
+      padding: 1.6rem;
+    }
+
+    .project-number {
+      color: var(--primary);
+      font-size: 0.8rem;
+      font-weight: 700;
+    }
+
+    .project h3 {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 1.25rem;
+      line-height: 1.4;
+      margin: 0.5rem 0;
+    }
+
+    .project-tech {
+      color: var(--accent);
+      font-size: 0.8rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .project p,
+    .project ul {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .project ul {
+      margin: 0.8rem 0 0 1.2rem;
+    }
+
+    .timeline {
+      border-left: 2px solid var(--border);
+      padding-left: 1.5rem;
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 2rem;
+    }
+
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--primary);
+      left: -1.9rem;
+      top: 7px;
+    }
+
+    .timeline-item h3 {
+      font-size: 1.05rem;
+    }
+
+    .institution {
+      color: var(--primary);
+      font-size: 0.9rem;
+      margin: 0.3rem 0;
+    }
+
+    .timeline-item p {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .learning-card {
+      padding: 1.4rem;
+    }
+
+    .status {
+      display: inline-block;
+      margin-top: 0.8rem;
+      padding: 0.25rem 0.65rem;
+      border-radius: 20px;
+      background: rgba(74, 222, 128, 0.1);
+      color: var(--success);
+      font-size: 0.72rem;
+      font-weight: 600;
+    }
+
+    .achievement-list {
+      gap: 0.8rem;
+    }
+
+    .achievement {
+      padding: 1rem;
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    .achievement::before {
+      content: "✓";
+      color: var(--success);
+      font-weight: bold;
+      margin-right: 0.5rem;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+    }
+
+    .tag {
+      padding: 0.5rem 0.85rem;
+      border: 1px solid var(--border);
+      border-radius: 30px;
+      background: var(--card);
+      color: var(--muted);
+      font-size: 0.82rem;
+    }
+
+    .contact-box {
+      background: linear-gradient(135deg, var(--card), var(--card-light));
+      border: 1px solid var(--border);
+      border-radius: 15px;
+      padding: 2rem;
+    }
+
+    .contact-box p {
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .contact-link {
+      display: inline-block;
+      padding: 0.7rem 1rem;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--text);
+      font-size: 0.85rem;
+      transition: 0.3s;
+    }
+
+    .contact-link:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem 0;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.8rem;
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--secondary);
+      outline-offset: 4px;
+    }
+
+    @media (max-width: 850px) {
+      .nav-container {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 1rem 0;
+      }
+
+      .nav-links {
+        flex-wrap: wrap;
+        gap: 0.5rem 1rem;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .hero {
+        min-height: auto;
+        padding: 75px 0 60px;
+      }
+
+      section {
+        padding: 60px 0;
+      }
+
+      .skills-grid,
+      .learning-grid,
+      .achievement-list,
+      .projects {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-role {
+        font-size: 1.05rem;
+      }
+
+      .contact-box {
+        padding: 1.3rem;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+  <nav aria-label="Main navigation">
+    <div class="container nav-container">
+      <a href="#home" class="logo">P<span>.</span> VARMA</a>
+
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#achievements">Achievements</a></li>
+        <li><a href="#interests">Interests</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero" id="home">
+    <div class="container">
+      <div class="hero-content">
+        <div class="hello">HELLO, I'M</div>
+
+        <h1>Sangaraju Paardeep <span>Varma</span></h1>
+
+        <div class="hero-role">
+          B.E. Computer Science and Engineering
+          <br>
+          Artificial Intelligence &amp; Machine Learning
+        </div>
+
+        <p class="hero-description">
+          I am a Computer Science and Engineering student at
+          Government College of Technology, interested in programming,
+          application development, game development and Artificial
+          Intelligence and Machine Learning.
+        </p>
+
+        <div class="buttons">
+          <a href="#projects" class="btn btn-primary">View My Projects</a>
+          <a href="#contact" class="btn btn-outline">Contact Me</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="container">
+        <div class="section-heading">
+          <div class="section-label">About Me</div>
+          <h2>Learning by building projects</h2>
+        </div>
+
+        <p class="about-text">
+          I'm <span class="highlight">Sangaraju Paardeep Varma</span>,
+          pursuing a B.E. in Computer Science and Engineering with a
+          specialization in Artificial Intelligence and Machine Learning
+          at <span class="highlight">Government College of Technology</span>.
+
+          <br><br>
+
+          My technical interests include Python, C programming, data
+          structures, application development and game development.
+          I have worked on a calculator using MIT App Inventor and a
+          road-crossing game using GDevelop.
+
+          <br><br>
+
+          I also explore Microsoft Learn modules to develop my
+          understanding of technology, AI and related topics.
+        </p>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills">
+      <div class="container">
+        <div class="section-heading">
+          <div class="section-label">Technical Skills</div>
+          <h2>Technologies I work with</h2>
+        </div>
+
+        <div class="skills-grid">
+          <article class="skill-card">
+            <h3>Python</h3>
+            <p>Python programming and academic coding exercises.</p>
+          </article>
+
+          <article class="skill-card">
+            <h3>C Programming</h3>
+            <p>C programming fundamentals and problem-solving practice.</p>
+          </article>
+
+          <article class="skill-card">
+            <h3>Data Structures</h3>
+            <p>Learning data structures and algorithmic techniques.</p>
+          </article>
+
+          <article class="skill-card">
+            <h3>MIT App Inventor</h3>
+            <p>Building applications with visual programming blocks.</p>
+          </article>
+
+          <article class="skill-card">
+            <h3>FlutterFlow</h3>
+            <p>Exploring visual application development.</p>
+          </article>
+
+          <article class="skill-card">
+            <h3>Game Development</h3>
+            <p>Creating interactive games using visual development tools.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+      <div class="container">
+        <div class="section-heading">
+          <div class="section-label">Projects</div>
+          <h2>My Projects</h2>
+          <p>
+            Projects involving application development and game creation.
+          </p>
+        </div>
+
+        <div class="projects">
+          <article class="project">
+            <div class="project-number">PROJECT 01</div>
+            <h3>Calculator App</h3>
+            <div class="project-tech">
+              MIT App Inventor · Visual Programming
+            </div>
+
+            <p>
+              A calculator application developed using MIT App Inventor.
+              The project uses a visual development environment to build
+              a calculator interface and implement calculation logic.
+            </p>
+
+            <ul>
+              <li>Created using MIT App Inventor.</li>
+              <li>Designed a calculator interface.</li>
+              <li>Used visual programming blocks.</li>
+            </ul>
+          </article>
+
+          <article class="project">
+            <div class="project-number">PROJECT 02</div>
+            <h3>Bowling Shame Road Crosser</h3>
+            <div class="project-tech">
+              GDevelop · Game Development
+            </div>
+
+            <p>
+              A road-crossing game project created using GDevelop,
+              a visual game development platform.
+            </p>
+
+            <ul>
+              <li>Developed using GDevelop.</li>
+              <li>Explored visual game development.</li>
+              <li>Worked on an interactive game project.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section id="education">
+      <div class="container">
+        <div class="section-heading">
+          <div class="section-label">Education</div>
+          <h2>Academic Background</h2>
+        </div>
+
+        <div class="timeline">
+          <article class="timeline-item">
+            <h3>
+              B.E. Computer Science and Engineering
+            </h3>
+
+            <div class="institution">
+              Government College of Technology
+            </div>
+
+            <p>
+              Specialization: Artificial Intelligence and Machine Learning.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ACHIEVEMENTS -->
+    <section id="achievements">
+      <div class="container">
+        <div class="section-heading">
+          <div class="section-label">Learning &amp; Achievements</div>
+          <h2>Microsoft Learn</h2>
+          <p>
+            Microsoft Learn certificates and learning modules.
+            Add individual module names or verified credentials below
+              when you want to display them separately.
+          </p>
+        </div>
+
+        <div class="achievement-list">
+          <div class="achievement">
+            Microsoft Learn certificates and modules
+          </div>
+          <div class="achievement">
+            Technology learning and self-development
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- INTERESTS -->
+    <section id="interests">
+      <div class="container">
+        <div class="section-heading">
+          <div class="section-label">Interests</div>
+          <h2>Areas of interest</h2>
+        </div>
+
+        <div class="tags">
+          <span class="tag">Artificial Intelligence</span>
+          <span class="tag">Machine Learning</span>
+          <span class="tag">Python</span>
+          <span class="tag">C Programming</span>
+          <span class="tag">Data Structures</span>
+          <span class="tag">Application Development</span>
+          <span class="tag">Game Development</span>
+          <span class="tag">MIT App Inventor</span>
+          <span class="tag">FlutterFlow</span>
+          <span class="tag">GDevelop</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="container">
+        <div class="section-heading">
+          <div class="section-label">Contact</div>
+          <h2>Let's connect</h2>
+        </div>
+
+        <div class="contact-box">
+          <p>
+            Feel free to contact me about my projects, technical interests
+            or opportunities to learn and collaborate.
+          </p>
+
+          <div class="contact-links">
+            <a href="mailto:paardeepvarmas@gmail.com"
+               class="contact-link">
+              &#9993; Email Me
+            </a>
+
+            <!-- Add your GitHub profile URL when available. -->
+            <a href="https://github.com/"
+               class="contact-link"
+               target="_blank"
+               rel="noopener noreferrer">
+              GitHub — Add Profile
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <p>
+        &copy; <span id="year"></span>
+        Sangaraju Paardeep Varma. All rights reserved.
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+  </script>
+
+</body>
+</html>
